@@ -1,37 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thaperei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/16 10:20:45 by thaperei          #+#    #+#             */
-/*   Updated: 2025/08/16 10:20:45 by thaperei         ###   ########.fr       */
+/*   Created: 2025/08/16 16:30:38 by thaperei          #+#    #+#             */
+/*   Updated: 2025/08/16 16:30:38 by thaperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// Validação
-int	ft_args_validate(char **args)
-{
-	// numeros não inteiros, valores que passe do int min ou max int e duplicados
-	int	i;
-	int	j;
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-	i = 0;
-	while (args[i])
-	{
-		j = 0;
-		while (args[i][j] && )
-		{
-			#code
-		}
-	}
-}
-
-int main(int argc, char *argv[])
-{
-	if (argc == 1)
-		return (1);
-
-	return 0;
-}
+# include "./libft/libft.h"
+#endif
