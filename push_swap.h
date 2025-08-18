@@ -12,6 +12,8 @@
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-
 # include "./libft/libft.h"
+//# define STDIN 0
+//# define STDOUT 1
+# define STDERR 2
 #endif

@@ -1,8 +1,8 @@
 NAME:=push_swap
 
 SRC:= push_swap.c
-OBJS= $(SRC:.c=.o)
-
+OBJS:= $(SRC:.c=.o)
+LIBFTSRC:= libft
 LIBS:= -L. -lft -lftprintf
 
 CFLAGS:=-Wall -Wextra -Werror -g
@@ -15,14 +15,15 @@ $(NAME): $(OBJS) libs
 	gcc $(LIBS) $(OBJS) -o $@
 
 %.o: %.c
-	gcc $(SRC) $(CFLAGS) -I. $^ -o $@
+	gcc $(SRC) $(CFLAGS) -I. -I./$(LIBFTSRC) $^ -o $@
 
 libs: 
 	make -C ./libft
-	mv ./libft/libft.a .
+	cp $(LIBFTSRC)/libft.a .
 
 clean:
 	$(RM) $(OBJS)
+	make -C $(LIBFTSRC) clean
 
 fclean: clear
 	$(RM) $(NAME) libft.a
