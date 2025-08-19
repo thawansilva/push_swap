@@ -13,13 +13,12 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include "./libft/libft.h"
-# include <limits.h>
-//# define STDIN 0
-//# define STDOUT 1
 # define STDERR 2
 
-int		has_double_number(char **args);
+// Ultils functions
 void	error_msg(char *str);
 void	free_arr(char **arr);
+
+// Validation
 void	input_validate(int argc, char **argv);
 #endif
