@@ -71,7 +71,7 @@ static int	has_valid_numbers(char *str)
 static void	terminate_process(int argc, char **argv)
 {
 	if (argc == 2)
-		free_arr(tmp_argv);
+		free_arr(argv);
 	error_msg("Error\n");
 }
 
