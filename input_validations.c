@@ -13,6 +13,13 @@
 #include "./push_swap.h"
 #include "./libft/libft.h"
 
+static void	terminate_process(int argc, char **argv)
+{
+	if (argc == 2)
+		free_arr(argv);
+	error_msg("Error\n");
+}
+
 static int has_double_number(char **args)
 {
 	int	i;
@@ -33,13 +40,25 @@ static int has_double_number(char **args)
 	return (0);
 }
 
+int	has_overflow_value(char *str, int size)
+{
+	int	is_overflow_min;
+	int	is_overflow_max;
+
+	is_overflow_min = (str[0] == '-' && size > 11);
+	is_overflow_max = size > 10;
+	if (is_overflow_min || is_overflow_max)
+		return (1);
+	return (0);
+}
+
 static int	is_valid_number(char *str)
 {
 	int	size;
 	int	i;
 
 	size = ft_strlen(str);
-	if ((str[0] == '-' && size > 11) || size > 10 || size == 0)
+	if (has_overflow_value(str, size) || size == 0)
 		return (0);
 	i = 0;
 	while (str[i])
@@ -49,30 +68,6 @@ static int	is_valid_number(char *str)
 		i++;
 	}
 	return (1);
-}
-
-static int	has_valid_numbers(char *str)
-{
-	char	**arr;
-	int		size;
-
-	arr = ft_split(str, ' ');
-	size = 0;
-	while (arr[size])
-	{
-		if (!is_valid_number(arr[size]))
-			return (0);
-		size++;
-	}
-	free_arr(arr);
-	return (1);
-}
-
-static void	terminate_process(int argc, char **argv)
-{
-	if (argc == 2)
-		free_arr(argv);
-	error_msg("Error\n");
 }
 
 void	input_validate(int argc, char **argv)
@@ -89,7 +84,7 @@ void	input_validate(int argc, char **argv)
 	i = 0;
 	while (tmp_argv[i])
 	{
-		if (!has_valid_numbers(tmp_argv[i]) || !is_valid_number(tmp_argv[i]))
+		if (!is_valid_number(tmp_argv[i]))
 			terminate_process(argc, tmp_argv);
 		i++;
 	}
