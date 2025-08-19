@@ -1,31 +1,23 @@
-NAME:=push_swap
+NAME = push_swap
+SRC = push_swap.c input_validations.c ultils_functions.c
 
-SRC:= push_swap.c
-OBJS:= $(SRC:.c=.o)
-LIBFTSRC:= libft
-LIBS:= -L. -lft -lftprintf
+OBJS = $(SRC:.c=.o)
+LIBFT = libft/libft.a
+CFLAGS = -Wall -Wextra -Werror -g
 
-CFLAGS:=-Wall -Wextra -Werror -g
+RM = rm -f
 
-RM:= rm -f
+all: $(NAME) 
 
-all: $(NAME)
-
-$(NAME): $(OBJS) libs
-	gcc $(LIBS) $(OBJS) -o $@
-
-%.o: %.c
-	gcc $(SRC) $(CFLAGS) -I. -I./$(LIBFTSRC) $^ -o $@
-
-libs: 
+$(NAME): $(OBJS) 
 	make -C ./libft
-	cp $(LIBFTSRC)/libft.a .
+	gcc $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 clean:
 	$(RM) $(OBJS)
-	make -C $(LIBFTSRC) clean
+	make -C libft clean
 
-fclean: clear
+fclean: clean
 	$(RM) $(NAME) libft.a
 
 re: fclean all

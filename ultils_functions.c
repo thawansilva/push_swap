@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ultils_functions.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thaperei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/16 16:30:38 by thaperei          #+#    #+#             */
-/*   Updated: 2025/08/16 16:30:38 by thaperei         ###   ########.fr       */
+/*   Created: 2025/08/18 19:22:45 by thaperei          #+#    #+#             */
+/*   Updated: 2025/08/18 19:22:45 by thaperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include "./libft/libft.h"
-# include <limits.h>
-//# define STDIN 0
-//# define STDOUT 1
-# define STDERR 2
+#include "./push_swap.h"
 
-int		has_double_number(char **args);
-void	error_msg(char *str);
-void	free_arr(char **arr);
-void	input_validate(int argc, char **argv);
-#endif
+void error_msg(char *str)
+{
+	ft_putstr_fd(str, STDERR);
+	exit(0);
+}
+
+void free_arr(char **arr)
+{
+	int	i;
+
+	i = 0;
+	while (arr[i])
+	{
+		free(arr[i]);
+		i++;
+	}
+	free(arr);
+}
