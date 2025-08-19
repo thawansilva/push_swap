@@ -15,9 +15,13 @@
 # include "./libft/libft.h"
 # define STDERR 2
 
-// Ultils functions
+// Number functions
+int		*get_numbers(int argc, char **argv);
+
+// Utils functions
 void	error_msg(char *str);
 void	free_arr(char **arr);
+void	free_numbers(int **arr);
 
 // Validation
 void	input_validate(int argc, char **argv);

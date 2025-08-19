@@ -14,8 +14,15 @@
 
 int main(int argc, char **argv)
 {
+	//t_list	stack_a;
+	//t_list	stack_b;
+	int		*numbers;
+
 	if (argc == 1)
 		return (1);
 	input_validate(argc, argv);
-	return 0;
+	numbers = get_numbers(argc, argv);
+	free_numbers(&numbers);
+	//create_stack(stack_a, argv);
+	return (0);
 }

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ultils_functions.c                                 :+:      :+:    :+:   */
+/*   utils_functions.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thaperei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -15,7 +15,7 @@
 void error_msg(char *str)
 {
 	ft_putstr_fd(str, STDERR);
-	exit(0);
+	exit(1);
 }
 
 void free_arr(char **arr)
@@ -29,4 +29,17 @@ void free_arr(char **arr)
 		i++;
 	}
 	free(arr);
+}
+
+void free_numbers(int **arr)
+{
+//	int	i;
+//
+//	i = 0;
+//	while (arr[i])
+//	{
+//		free(arr[i]);
+//		i++;
+//	}
+	free(*arr);
 }

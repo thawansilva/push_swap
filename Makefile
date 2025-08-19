@@ -1,5 +1,5 @@
 NAME = push_swap
-SRC = push_swap.c input_validations.c ultils_functions.c
+SRC = push_swap.c input_validations.c utils_functions.c numbers.c
 
 OBJS = $(SRC:.c=.o)
 LIBFT = libft/libft.a
