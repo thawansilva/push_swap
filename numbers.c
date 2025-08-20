@@ -22,23 +22,37 @@ static int	get_count_numbers(char **arr)
 	return (count);
 }
 
-int	*get_numbers(int argc, char **argv)
+static void	set_numbers(char **arr, int *arr_nbr)
+{
+	int	i;
+	int	count_numbers;
+
+	i = 0;
+	count_numbers = get_count_numbers(arr);
+	while (i < count_numbers)
+	{
+		arr_nbr[i] = ft_atoi(arr[i]);
+		i++;
+	}
+}
+
+int	*get_numbers(int argc, char **argv, int *size)
 {
 	char	**arr;
-	int		count_numbers;
 	int		*arr_nbr;
 
 	if (argc == 2)
 		arr = ft_split(argv[1], ' ');
 	else
 		arr = argv + 1;
-	count_numbers = get_count_numbers(argv);
-	arr_nbr = (int *) malloc(sizeof(int ) * count_numbers);
+	*size = get_count_numbers(arr);
+	arr_nbr = (int *) malloc(sizeof(int ) * *size);
 	if (!arr_nbr)
 	{
 		if (argc == 2)
 			free_arr(arr);
 		error_msg("Error\n");
 	}
+	set_numbers(arr, arr_nbr);
 	return (arr_nbr);
 }

@@ -1,5 +1,6 @@
 NAME = push_swap
-SRC = push_swap.c input_validations.c utils_functions.c numbers.c
+SRC = push_swap.c input_validations.c utils_functions.c create_stack.c\
+	  numbers.c
 
 OBJS = $(SRC:.c=.o)
 LIBFT = libft/libft.a
@@ -10,7 +11,7 @@ RM = rm -f
 all: $(NAME) 
 
 $(NAME): $(OBJS) 
-	make -C ./libft
+	make -C ./libft bonus
 	gcc $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 clean:

@@ -33,13 +33,15 @@ void free_arr(char **arr)
 
 void free_numbers(int **arr)
 {
-//	int	i;
-//
-//	i = 0;
-//	while (arr[i])
-//	{
-//		free(arr[i]);
-//		i++;
-//	}
 	free(*arr);
+}
+
+void	free_content(void *content)
+{
+	free(content);
+}
+
+void	free_stack(t_list *stack_a)
+{
+	ft_lstclear(&stack_a, &free_content);
 }
