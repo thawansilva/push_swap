@@ -31,17 +31,21 @@ void free_arr(char **arr)
 	free(arr);
 }
 
-void free_numbers(int **arr)
+void free_numbers(int *arr)
 {
-	free(*arr);
+	free(arr);
 }
 
-void	free_content(void *content)
+void	free_stack(t_list **stack_a)
 {
-	free(content);
-}
+	t_list	*next_node;
 
-void	free_stack(t_list *stack_a)
-{
-	ft_lstclear(&stack_a, &free_content);
+	if (!stack_a || !*stack_a)
+		return ;
+	while (*stack_a)
+	{
+		next_node = (*stack_a)->next;
+		free(*stack_a);
+		*stack_a = next_node;
+	}
 }

@@ -25,7 +25,7 @@ int main(int argc, char **argv)
 	numbers = get_numbers(argc, argv, &size);
 	stack_a = NULL;
 	create_stack(&stack_a, numbers, size);
-	free_numbers(&numbers);
-	free_stack(stack_a);
+	free_numbers(numbers);
+	free_stack(&stack_a);
 	return (0);
 }

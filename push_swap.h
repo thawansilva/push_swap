@@ -24,9 +24,9 @@ int		*get_numbers(int argc, char **argv, int *size);
 // Utils functions
 void	error_msg(char *str);
 void	free_arr(char **arr);
-void	free_numbers(int **arr);
+void	free_numbers(int *arr);
 void	free_content(void *content);
-void	free_stack(t_list *stack_a);
+void	free_stack(t_list **stack_a);
 
 // Validation
 void	input_validate(int argc, char **argv);
