@@ -1,9 +1,9 @@
 NAME = push_swap
 SRC = push_swap.c input_validations.c utils_functions.c create_stack.c\
-	  numbers.c
+	  numbers.c stacks.c
 
 OBJS = $(SRC:.c=.o)
-LIBFT = libft/libft.a
+LIBFT = libft.a
 CFLAGS = -Wall -Wextra -Werror -g
 
 RM = rm -f
@@ -12,6 +12,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS) 
 	make -C ./libft bonus
+	cp ./libft/libft.a .
 	gcc $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 clean:

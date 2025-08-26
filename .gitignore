@@ -2,6 +2,7 @@
 *.pdf
 push_swap
 tests/
+checker_linux
 
 # Prerequisites
 *.d

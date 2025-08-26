@@ -14,9 +14,12 @@
 # define PUSH_SWAP_H
 # include "./libft/libft.h"
 # define STDERR 2
+# define INT_MAX 2147483647 
+# define INT_MIN -2147483648
 
 // Stack functions
 void	create_stack(t_list **stack, int *numbers, int size);
+void	ordenate_stack(t_list *stack_a, t_list *stack_b, int size);
 
 // Number functions
 int		*get_numbers(int argc, char **argv, int *size);

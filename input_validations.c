@@ -50,30 +50,19 @@ int	has_overflow_value(char *str)
 	return (0);
 }
 
-int	is_invalid_sign(char *str, int index)
-{
-	if (str[index] == '-' && ft_isdigit(str[index - 1]))
-		return (1);
-	else if (!ft_isdigit(str[index]))
-		return (1);
-	return (0);
-}
-
 static int	is_valid_number(char *str)
 {
-	int	size;
 	int	i;
 
-	size = ft_strlen(str);
-	if (has_overflow_value(str) || size == 0)
-		return (0);
 	i = 0;
-	while (str[i])
-	{
-		if (!ft_isdigit(str[i]) || is_invalid_sign(str, i))
-			return (0);
+	if (str[i] == '+' || str[i] == '-')
 		i++;
-	}
+	while (ft_isdigit(str[i]))
+		i++;
+	if (!ft_isdigit(str[i]) && ((str[i - 1] == '+') || (str[i - 1] == '-')))
+		return (0);
+	if (!ft_atoi(str))
+		return (0);
 	return (1);
 }
 
