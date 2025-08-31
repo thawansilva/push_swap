@@ -33,6 +33,7 @@ typedef struct s_stack_node
 // Stack functions
 void	create_stack(t_stack_node **stack_a, char **argv, int is_split);
 void	order_stack(t_stack_node *stack_a, t_stack_node *stack_b);
+int		get_stack_size(t_stack_node *stack);
 
 // Utils functions
 void	error_msg(char *str);
