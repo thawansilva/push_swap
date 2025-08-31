@@ -17,9 +17,22 @@
 # define INT_MAX 2147483647 
 # define INT_MIN -2147483648
 
+typedef struct s_stack_node
+{
+	int					value;
+	int					current_pos;
+	int					final_index;	
+	int					push_price;	
+	int					is_above_median;	
+	int					is_cheapest;	
+	struct s_stack_node	*target_node;
+	struct s_stack_node	*next;
+	struct s_stack_node	*prev;
+}	t_stack_node;
+
 // Stack functions
-void	create_stack(t_list **stack, int *numbers, int size);
-void	ordenate_stack(t_list *stack_a, t_list *stack_b, int size);
+void	create_stack(t_stack_node **stack_a, char **argv, int is_split);
+void	ordenate_stack(t_stack_node *stack_a, t_stack_node *stack_b);
 
 // Number functions
 int		*get_numbers(int argc, char **argv, int *size);
@@ -27,9 +40,7 @@ int		*get_numbers(int argc, char **argv, int *size);
 // Utils functions
 void	error_msg(char *str);
 void	free_arr(char **arr);
-void	free_numbers(int *arr);
-void	free_content(void *content);
-void	free_stack(t_list **stack_a);
+void	free_stack(t_stack_node **stack_a);
 
 // Validation
 void	input_validate(int argc, char **argv);

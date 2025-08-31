@@ -13,7 +13,7 @@
 #include "./push_swap.h"
 #include "./libft/libft.h"
 
-static void	terminate_process(int argc, char **argv)
+static void	kill_process(int argc, char **argv)
 {
 	if (argc == 2)
 		free_arr(argv);
@@ -76,12 +76,12 @@ void	input_validate(int argc, char **argv)
 	else
 		tmp_argv = argv + 1;
 	if (has_double_number(tmp_argv))
-		terminate_process(argc, tmp_argv);
+		kill_process(argc, tmp_argv);
 	i = 0;
 	while (tmp_argv[i])
 	{
 		if (!is_valid_number(tmp_argv[i]))
-			terminate_process(argc, tmp_argv);
+			kill_process(argc, tmp_argv);
 		i++;
 	}
 	if (argc == 2)

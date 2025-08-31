@@ -13,22 +13,71 @@
 #include "./push_swap.h"
 #include "./libft/libft.h"
 
-void	add_elem_stack(t_list **stack, int *nbr)
+static void	kill_process(t_stack_node **stack, char **argv, int is_split)
 {
-	t_list	*elem;
-
-	elem = ft_lstnew(nbr);
-	ft_lstadd_back(stack, elem);
+	if (is_split)
+		free_arr(argv);
+	free_stack(stack);
+	error_msg("Error\n");
 }
 
-void	create_stack(t_list **stack, int *numbers, int size)
+static t_stack_node	*create_node(int value)
+{
+	t_stack_node	*node;
+
+	node = (t_stack_node*) malloc(sizeof(t_stack_node));
+	if (node == NULL)
+		return (NULL);
+	node->next = NULL;
+	node->prev = NULL;
+	node->target_node = NULL;
+	node->value = value;
+	return (node);
+}
+
+static t_stack_node	*find_last_node(t_stack_node *stack)
+{
+	if (stack == NULL)
+		return (NULL);
+	while (stack->next)
+		stack = stack->next;
+	return (stack);
+}
+
+static int	append_node(t_stack_node **stack, char *nbr)
+{
+	t_stack_node	*node;
+	t_stack_node	*last_node;
+	int				value;
+
+	value = ft_atoi(nbr);
+	node = create_node(value);
+	if (!node)
+		return (0);
+	if (*stack == NULL)
+		*stack = node;
+	else
+	{
+		last_node = find_last_node(*stack);
+		last_node->next = node;
+		node->prev = last_node;
+	}
+	return (1);
+}
+
+void	create_stack(t_stack_node **stack, char **argv, int is_split)
 {
 	int	i;
+	int	is_successful;
 
 	i = 0;
-	while (i < size)
+	while (argv[i] != NULL)
 	{
-		add_elem_stack(stack, &numbers[i]);
+		is_successful = append_node(stack, argv[i]);
+		if (!is_successful)
+			kill_process(stack, argv, is_split);
 		i++;
 	}
+	if (is_split)
+		free_arr(argv);
 }
