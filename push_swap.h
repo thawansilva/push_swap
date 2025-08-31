@@ -32,7 +32,7 @@ typedef struct s_stack_node
 
 // Stack functions
 void	create_stack(t_stack_node **stack_a, char **argv, int is_split);
-void	ordenate_stack(t_stack_node *stack_a, t_stack_node *stack_b);
+void	order_stack(t_stack_node *stack_a, t_stack_node *stack_b);
 
 // Number functions
 int		*get_numbers(int argc, char **argv, int *size);

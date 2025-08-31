@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stacks.c                                           :+:      :+:    :+:   */
+/*   order_stack.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thaperei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -26,13 +26,31 @@ int	get_stack_size(t_stack_node *stack)
 	return (size);
 }
 
-void	ordenate_stack(t_stack_node *stack_a, t_stack_node *stack_b)
+int	is_stack_sorted(t_stack_node *stack)
+{
+	t_stack_node	*current;
+	t_stack_node	*next;
+
+	current = stack;
+	while (current->next)
+	{
+		next = current->next;
+		if (current->value > next->value)
+			return (0);
+		current = current->next;
+	}
+	return (1);
+}
+
+void	order_stack(t_stack_node *stack_a, t_stack_node *stack_b)
 {
 	int	size_a;
 
-	size_a = get_stack_size(stack_a);
 	if (!stack_a && !stack_b)
 		return ;
+	if (is_stack_sorted(stack_a))
+		return ;
+	size_a = get_stack_size(stack_a);
 	if (size_a == 2)
 		return (order_two(stack_a, 'a'));
 	else if (size_a == 3)
