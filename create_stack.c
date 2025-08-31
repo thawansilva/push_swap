@@ -13,9 +13,9 @@
 #include "./push_swap.h"
 #include "./libft/libft.h"
 
-static void	kill_process(t_stack_node **stack, char **argv, int is_split)
+static void	kill_process(t_stack_node **stack, char **argv, int argc)
 {
-	if (is_split)
+	if (argc == 2)
 		free_arr(argv);
 	free_stack(stack);
 	error_msg("Error\n");
@@ -65,19 +65,21 @@ static int	append_node(t_stack_node **stack, char *nbr)
 	return (1);
 }
 
-void	create_stack(t_stack_node **stack, char **argv, int is_split)
+void	create_stack(t_stack_node **stack, char **argv, int argc)
 {
 	int	i;
 	int	is_successful;
 
+	if (argc == 2)
+		argv = ft_split(argv[0], ' ');
 	i = 0;
 	while (argv[i] != NULL)
 	{
 		is_successful = append_node(stack, argv[i]);
 		if (!is_successful)
-			kill_process(stack, argv, is_split);
+			kill_process(stack, argv, argc);
 		i++;
 	}
-	if (is_split)
+	if (argc == 2)
 		free_arr(argv);
 }

@@ -13,52 +13,28 @@
 #include "./push_swap.h"
 #include "./libft/libft.h"
 
-void	ordenate_two_elem(t_list *stack)
+int	get_stack_size(t_stack_node *stack)
 {
-	int	first;
-	int	second;
+	int	size;
 
-	first = *(int *)stack->content;
-	second = *(int *)stack->next->content;
-	if (first > second)
-		ft_putstr_fd("sa", STDOUT);
+	size = 0;
+	while (stack != NULL)
+	{
+		size++;
+		stack = stack->next;
+	}
+	return (size);
 }
 
-void	ordenate_three_elem(t_list *stack)
+void	ordenate_stack(t_stack_node *stack_a, t_stack_node *stack_b)
 {
-	int	*first;
-	int	*second;
-	int	*third;
+	int	size_a;
 
-	first = stack->content;
-	second = stack->next->content;
-	third = stack->next->next->content;
-	if (*first > *second)
-	{
-		if (*first > *third && *second > *third)
-			return (ft_putstr_fd("ra\nsa\n", STDOUT));
-		else if (*first > *third && *second < *third)
-			return (ft_putstr_fd("ra\n", STDOUT));
-		else
-			return (ft_putstr_fd("sa\n", STDOUT));
-	}
-	else
-	{
-		if (*second > *third && *first < *third)
-			return (ft_putstr_fd("rra\nsa\n", STDOUT));
-		else if (*second > *third && *first > *third)
-			return (ft_putstr_fd("rra\n", STDOUT));
-	}
-}
-
-void	ordenate_stack(t_list *stack_a, t_list *stack_b, int size)
-{
-	if (size == 1)
+	size_a = get_stack_size(stack_a);
+	if (!stack_a && !stack_b)
 		return ;
-	if (size == 2)
-		return (ordenate_two_elem(stack_a));
-	if (size == 3)
-		return (ordenate_three_elem(stack_a));
-	if (!stack_a || !stack_b)
-		return ;
+	if (size_a == 2)
+		return (order_two(stack_a, 'a'));
+	else if (size_a == 3)
+		return (order_three(stack_a, 'a'));
 }

@@ -22,9 +22,7 @@ int main(int argc, char **argv)
 	if (argc == 1)
 		error_msg("Insert at least one argument, please\n");
 	input_validate(argc, argv); // O(n³)
-	if (argc == 2)
-		argv = ft_split(argv[1], ' ');
-	create_stack(&stack_a, argv, argc == 2); // O(n²)
+	create_stack(&stack_a, argv + 1, argc); // O(n²)
 	ordenate_stack(stack_a, stack_b);
 	free_stack(&stack_a); //O(n)
 	free_stack(&stack_b); //O(n)

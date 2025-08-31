@@ -44,4 +44,8 @@ void	free_stack(t_stack_node **stack_a);
 
 // Validation
 void	input_validate(int argc, char **argv);
+
+// Order functions
+void	order_two(t_stack_node *stack, char type);
+void	order_three(t_stack_node *stack, char type);
 #endif
