@@ -31,21 +31,16 @@ void free_arr(char **arr)
 	free(arr);
 }
 
-void free_numbers(int *arr)
+void	free_stack(t_stack_node **stack)
 {
-	free(arr);
-}
+	t_stack_node	*next_node;
 
-void	free_stack(t_list **stack_a)
-{
-	t_list	*next_node;
-
-	if (!stack_a || !*stack_a)
+	if (!stack || !*stack)
 		return ;
-	while (*stack_a)
+	while (*stack)
 	{
-		next_node = (*stack_a)->next;
-		free(*stack_a);
-		*stack_a = next_node;
+		next_node = (*stack)->next;
+		free(*stack);
+		*stack = next_node;
 	}
 }
