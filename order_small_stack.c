@@ -12,17 +12,6 @@
 
 #include "./push_swap.h"
 
-void	order_two(t_stack_node *stack, char type)
-{
-	int	first;
-	int	second;
-
-	first = stack->value;
-	second = stack->next->value;
-	if (first > second)
-		ft_printf("s%c\n", type);
-}
-
 void	order_three(t_stack_node *stack, char type)
 {
 	int	first;
@@ -39,7 +28,7 @@ void	order_three(t_stack_node *stack, char type)
 		else if (first > third && second < third)
 			ft_printf("r%c\n", type);
 		else
-			ft_printf("s%c\n", type);
+			swap(&stack, type);
 	}
 	else
 	{

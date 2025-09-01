@@ -52,7 +52,7 @@ void	order_stack(t_stack_node *stack_a, t_stack_node *stack_b)
 		return ;
 	size_a = get_stack_size(stack_a);
 	if (size_a == 2)
-		return (order_two(stack_a, 'a'));
+		swap(&stack_a, 'a');
 	else if (size_a == 3)
 		return (order_three(stack_a, 'a'));
 }

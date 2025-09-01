@@ -32,7 +32,6 @@ typedef struct s_stack_node
 
 // Stack functions
 void	create_stack(t_stack_node **stack_a, char **argv, int is_split);
-void	order_stack(t_stack_node *stack_a, t_stack_node *stack_b);
 int		get_stack_size(t_stack_node *stack);
 
 // Utils functions
@@ -46,4 +45,10 @@ void	input_validate(int argc, char **argv);
 // Order functions
 void	order_two(t_stack_node *stack, char type);
 void	order_three(t_stack_node *stack, char type);
+void	order_stack(t_stack_node *stack_a, t_stack_node *stack_b);
+
+// Moves
+void	swap(t_stack_node **stack, char type);
+void	ss(t_stack_node **stack_a, t_stack_node **stack_b);
+void	push(t_stack_node **src, t_stack_node **dest, char type_dest);
 #endif
