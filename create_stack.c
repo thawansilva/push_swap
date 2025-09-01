@@ -35,15 +35,6 @@ static t_stack_node	*create_node(int value)
 	return (node);
 }
 
-static t_stack_node	*find_last_node(t_stack_node *stack)
-{
-	if (stack == NULL)
-		return (NULL);
-	while (stack->next)
-		stack = stack->next;
-	return (stack);
-}
-
 static int	append_node(t_stack_node **stack, char *nbr)
 {
 	t_stack_node	*node;
@@ -63,6 +54,15 @@ static int	append_node(t_stack_node **stack, char *nbr)
 		node->prev = last_node;
 	}
 	return (1);
+}
+
+t_stack_node	*get_last_node(t_stack_node *stack)
+{
+	if (stack == NULL)
+		return (NULL);
+	while (stack->next)
+		stack = stack->next;
+	return (stack);
 }
 
 void	create_stack(t_stack_node **stack, char **argv, int argc)

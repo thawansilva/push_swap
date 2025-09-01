@@ -1,6 +1,6 @@
 NAME = push_swap
 SRC = push_swap.c input_validations.c utils_functions.c create_stack.c\
-		  numbers.c order_stack.c order_small_stack.c swap.c push.c
+		  numbers.c order_stack.c order_small_stack.c swap.c push.c rotate.c\
 
 OBJS = $(SRC:.c=.o)
 LIBFT = libft.a
