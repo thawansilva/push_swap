@@ -16,14 +16,15 @@
 # define STDERR 2
 # define INT_MAX 2147483647 
 # define INT_MIN -2147483648
+# define FALSE 0
+# define TRUE 1
 
 typedef struct s_stack_node
 {
 	int					value;
-	int					current_pos;
-	int					final_index;	
+	int					current_position;
 	int					push_price;	
-	int					is_above_median;	
+	int					is_above_mid;	
 	int					is_cheapest;	
 	struct s_stack_node	*target_node;
 	struct s_stack_node	*next;
