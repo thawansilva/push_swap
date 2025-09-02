@@ -12,33 +12,31 @@
 
 #include "./push_swap.h"
 
+t_stack_node	*find_highest_node(t_stack_node *head)
+{
+	t_stack_node	*highest;
+
+	if (head == NULL)
+		return (NULL);
+	highest = head;
+	while (head->next != NULL)
+	{
+		if (highest->value < head->next->value)
+			highest = head->next;
+		head = head->next;
+	}
+	return (highest);
+}
+
 void	order_three(t_stack_node *stack, char type)
 {
-	int	first;
-	int	second;
-	int	third;
+	t_stack_node	*highest;
 
-	first = stack->value;
-	second = stack->next->value;
-	third = stack->next->next->value;
-	if (first > second)
-	{
-		if (first > third && second > third)
-		{
-			rotate(&stack, type);
-			swap(&stack, type);
-		}
-		else if (first > third && second < third)
-			rotate(&stack, type);
-		else
-			swap(&stack, type);
-		return ;
-	}
-	if (second > third && first < third)
-	{
+	highest = find_highest_node(stack);
+	if (stack == highest)
+		rotate(&stack, type);
+	else if (stack->next == highest)
 		reverse_rotate(&stack, type);
+	if (stack->value > stack->next->value)
 		swap(&stack, type);
-	}
-	else if (second > third && first > third)
-		reverse_rotate(&stack, type);
 }
