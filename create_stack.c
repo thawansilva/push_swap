@@ -13,19 +13,11 @@
 #include "./push_swap.h"
 #include "./libft/libft.h"
 
-static void	kill_process(t_stack_node **stack, char **argv, int argc)
-{
-	if (argc == 2)
-		free_arr(argv);
-	free_stack(stack);
-	error_msg("Error\n");
-}
-
 static t_stack_node	*create_node(int value)
 {
 	t_stack_node	*node;
 
-	node = (t_stack_node*) malloc(sizeof(t_stack_node));
+	node = (t_stack_node *) malloc(sizeof(t_stack_node));
 	if (node == NULL)
 		return (NULL);
 	node->next = NULL;
@@ -49,7 +41,7 @@ static int	append_node(t_stack_node **stack, char *nbr)
 		*stack = node;
 	else
 	{
-		last_node = find_last_node(*stack);
+		last_node = get_last_node(*stack);
 		last_node->next = node;
 		node->prev = last_node;
 	}

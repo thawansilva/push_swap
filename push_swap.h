@@ -35,8 +35,11 @@ void			create_stack(t_stack_node **stack_a, char **argv, int is_split);
 int				get_stack_size(t_stack_node *stack);
 t_stack_node	*get_last_node(t_stack_node *stack);
 
-// Utils functions
+// Error
 void			error_msg(char *str);
+void			kill_process(t_stack_node **stack, char **argv, int argc);
+
+// Free Memory
 void			free_arr(char **arr);
 void			free_stack(t_stack_node **stack_a);
 
@@ -54,4 +57,6 @@ void			ss(t_stack_node **stack_a, t_stack_node **stack_b);
 void			push(t_stack_node **src, t_stack_node **dest, char type_dest);
 void			rotate(t_stack_node **stack, char type);
 void			rr(t_stack_node **stack_a, t_stack_node **stack_b);
+void			reverse_rotate(t_stack_node **stack, char type);
+void			rrr(t_stack_node **stack_a, t_stack_node **stack_b);
 #endif

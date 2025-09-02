@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_functions.c                                  :+:      :+:    :+:   */
+/*   free_memory.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thaperei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,13 +12,7 @@
 
 #include "./push_swap.h"
 
-void error_msg(char *str)
-{
-	ft_putstr_fd(str, STDERR);
-	exit(1);
-}
-
-void free_arr(char **arr)
+void	free_arr(char **arr)
 {
 	int	i;
 

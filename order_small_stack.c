@@ -24,18 +24,21 @@ void	order_three(t_stack_node *stack, char type)
 	if (first > second)
 	{
 		if (first > third && second > third)
-			ft_printf("r%c\ns%c\n", type, type);
+		{
+			rotate(&stack, type);
+			swap(&stack, type);
+		}
 		else if (first > third && second < third)
-			ft_printf("r%c\n", type);
+			rotate(&stack, type);
 		else
 			swap(&stack, type);
+		return ;
 	}
-	else
+	if (second > third && first < third)
 	{
-		if (second > third && first < third)
-			ft_printf("rr%c\ns%c\n", type, type);
-		else if (second > third && first > third)
-			ft_printf("rr%c\n", type);
+		reverse_rotate(&stack, type);
+		swap(&stack, type);
 	}
+	else if (second > third && first > third)
+		reverse_rotate(&stack, type);
 }
-
