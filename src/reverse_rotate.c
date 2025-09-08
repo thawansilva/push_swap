@@ -28,15 +28,17 @@ void	reverse_rotate_move(t_stack_node **head)
 	last_node->next->prev = last_node;
 }
 
-void	reverse_rotate(t_stack_node **stack, char type)
+void	reverse_rotate(t_stack_node **stack, char type, int print)
 {
 	reverse_rotate_move(stack);
-	ft_printf("rr%c\n", type);
+	if (!print)
+		ft_printf("rr%c\n", type);
 }
 
-void	rrr(t_stack_node **stack_a, t_stack_node **stack_b)
+void	rrr(t_stack_node **stack_a, t_stack_node **stack_b, int print)
 {
 	reverse_rotate_move(stack_a);
 	reverse_rotate_move(stack_b);
-	ft_printf("rrr\n");
+	if (!print)
+		ft_printf("rrr\n");
 }

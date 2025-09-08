@@ -10,49 +10,30 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./push_swap.h"
-#include "./libft/libft.h"
+#include "push_swap.h"
 
-int	get_stack_size(t_stack_node *stack)
+void	order_stack(t_stack_node **stack_a, t_stack_node **stack_b)
 {
-	int	size;
+	t_stack_node	*smallest;
+	int				size_a;
 
-	size = 0;
-	while (stack != NULL)
+	size_a = get_stack_size(*stack_a);
+	if (size_a-- > 3 && !is_stack_sorted(*stack_a))
+		push(stack_a, stack_b, 'b', FALSE);
+	if (size_a-- > 3 && !is_stack_sorted(*stack_a))
+		push(stack_a, stack_b, 'b', FALSE);
+	while (size_a-- > 3 && !is_stack_sorted(*stack_a))
 	{
-		size++;
-		stack = stack->next;
+		init_nodes_a(*stack_a, *stack_b);
+		move_nodes_a(stack_a, stack_b);
 	}
-	return (size);
-}
-
-int	is_stack_sorted(t_stack_node *stack)
-{
-	t_stack_node	*current;
-	t_stack_node	*next;
-
-	current = stack;
-	while (current->next)
+	order_three(stack_a);
+	while (*stack_b)
 	{
-		next = current->next;
-		if (current->value > next->value)
-			return (0);
-		current = current->next;
+		init_nodes_b(*stack_a, *stack_b);
+		move_nodes_b(stack_a, stack_b);
 	}
-	return (1);
-}
-
-void	order_stack(t_stack_node *stack_a, t_stack_node *stack_b)
-{
-	int	size_a;
-
-	if (!stack_a && !stack_b)
-		return ;
-	if (is_stack_sorted(stack_a))
-		return ;
-	size_a = get_stack_size(stack_a);
-	if (size_a == 2)
-		swap(&stack_a, 'a');
-	else if (size_a == 3)
-		return (order_three(stack_a, 'a'));
+	set_current_position(*stack_a);
+	smallest = get_smallest(*stack_a);
+	finish_rotation(stack_a, smallest, 'a');
 }

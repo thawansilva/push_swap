@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./push_swap.h"
-#include "./libft/libft.h"
+#include "push_swap.h"
 
 static int	has_double_number(char **args)
 {
@@ -45,16 +44,22 @@ int	has_overflow_value(char *str)
 
 static int	is_valid_number(char *str)
 {
-	int	i;
+	int		i;
+	long	num;
 
 	i = 0;
+	if (ft_strlen(str) == 0)
+		return (0);
+	if ((str[i] == '-' || str[i] == '+') && str[i + 1] == 0)
+		return (0);
 	if (str[i] == '+' || str[i] == '-')
 		i++;
 	while (ft_isdigit(str[i]))
 		i++;
-	if (!ft_isdigit(str[i]) && ((str[i - 1] == '+') || (str[i - 1] == '-')))
+	if (!ft_isdigit(str[i]) && str[i] != '\0')
 		return (0);
-	if (!ft_atoi(str))
+	num = ft_atol(str);
+	if (num > INT_MAX || num < INT_MIN)
 		return (0);
 	return (1);
 }
@@ -64,6 +69,8 @@ void	input_validate(int argc, char **argv)
 	int		i;
 	char	**tmp_argv;
 
+	if (argc == 2 && !argv[1][0])
+		error_msg("Error");
 	if (argc == 2)
 		tmp_argv = ft_split(argv[1], ' ');
 	else

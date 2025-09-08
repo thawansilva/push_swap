@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thaperei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/02 10:38:37 by thaperei          #+#    #+#             */
-/*   Updated: 2025/09/02 10:38:37 by thaperei         ###   ########.fr       */
+/*   Created: 2025/07/12 16:54:23 by thaperei          #+#    #+#             */
+/*   Updated: 2025/07/12 16:54:23 by thaperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "./libft.h"
 
-void	error_msg(char *str)
+char	*ft_strnstr(char *str, char *sub, size_t n)
 {
-	ft_putstr_fd(str, STDERR);
-	exit(1);
-}
+	size_t	i;
+	size_t	j;
 
-void	kill_process(t_stack_node **stack, char **argv, int argc)
-{
-	if (argc == 2)
-		free_arr(argv);
-	if (stack != NULL)
-		free_stack(stack);
-	error_msg("Error\n");
+	if (*sub == '\0')
+		return (str);
+	i = 0;
+	while (str[i] && i < n)
+	{
+		j = 0;
+		while ((str[i + j] == sub[j]) && (j < n - i) && sub[j])
+			j++;
+		if (sub[j] == '\0')
+			return (&(str[i]));
+		i++;
+	}
+	return (NULL);
 }

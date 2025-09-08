@@ -1,0 +1,6 @@
+*.pdf
+*.swp
+*.o
+*.a
+*.out
+tests/

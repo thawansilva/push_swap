@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./push_swap.h"
-#include "./libft/libft.h"
+#include "push_swap.h"
 
 static t_stack_node	*create_node(int value)
 {

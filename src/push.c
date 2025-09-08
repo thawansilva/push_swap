@@ -16,7 +16,7 @@ void	push_move(t_stack_node **src, t_stack_node **dest)
 {
 	t_stack_node	*node_pop;
 
-	if (!*src)
+	if (*src == NULL)
 		return ;
 	node_pop = *src;
 	*src = (*src)->next;
@@ -34,8 +34,9 @@ void	push_move(t_stack_node **src, t_stack_node **dest)
 	*dest = node_pop;
 }
 
-void	push(t_stack_node **src, t_stack_node **dest, char type_dest)
+void	push(t_stack_node **src, t_stack_node **dest, char type_d, int print)
 {
 	push_move(src, dest);
-	ft_printf("p%c\n", type_dest);
+	if (!print)
+		ft_printf("p%c\n", type_d);
 }
