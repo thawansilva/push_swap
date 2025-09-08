@@ -34,9 +34,8 @@ void	push_move(t_stack_node **src, t_stack_node **dest)
 	*dest = node_pop;
 }
 
-void	push(t_stack_node **src, t_stack_node **dest, char type_d, int print)
+void	push(t_stack_node **src, t_stack_node **dest, char type_d)
 {
 	push_move(src, dest);
-	if (!print)
-		ft_printf("p%c\n", type_d);
+	ft_printf("p%c\n", type_d);
 }

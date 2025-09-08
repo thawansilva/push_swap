@@ -26,7 +26,7 @@ int	main(int argc, char **argv)
 	if (!is_stack_sorted(stack_a))
 	{
 		if (get_stack_size(stack_a) == 2)
-			swap(&stack_a, 'a', FALSE);
+			swap(&stack_a, 'a');
 		else if (get_stack_size(stack_a) == 3)
 			order_three(&stack_a);
 		else

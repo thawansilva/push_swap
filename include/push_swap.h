@@ -67,13 +67,13 @@ void			rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest);
 void			reverse_rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest);
 
 // Moves
-void			swap(t_stack_node **head, char type, int print);
-void			ss(t_stack_node **head_a, t_stack_node **head_b, int print);
-void			push(t_stack_node **src, t_stack_node **dest, char type_d, int print);
-void			rotate(t_stack_node **head, char type, int print);
-void			rr(t_stack_node **head_a, t_stack_node **head_b, int print);
-void			reverse_rotate(t_stack_node **head, char type, int print);
-void			rrr(t_stack_node **head_a, t_stack_node **head_b, int print);
+void			swap(t_stack_node **head, char type);
+void			ss(t_stack_node **head_a, t_stack_node **head_b);
+void			push(t_stack_node **src, t_stack_node **dest, char type_d);
+void			rotate(t_stack_node **head, char type);
+void			rr(t_stack_node **head_a, t_stack_node **head_b);
+void			reverse_rotate(t_stack_node **head, char type);
+void			rrr(t_stack_node **head_a, t_stack_node **head_b);
 
 // Free Memory
 void			free_arr(char **arr);

@@ -28,17 +28,15 @@ void	swap_move(t_stack_node	**head)
 	(*head)->prev = NULL;
 }
 
-void	swap(t_stack_node **stack, char type, int print)
+void	swap(t_stack_node **stack, char type)
 {
 	swap_move(stack);
-	if (!print)
-		ft_printf("s%c\n", type);
+	ft_printf("s%c\n", type);
 }
 
-void	ss(t_stack_node **stack_a, t_stack_node **stack_b, int print)
+void	ss(t_stack_node **stack_a, t_stack_node **stack_b)
 {
 	swap_move(stack_a);
 	swap_move(stack_b);
-	if (!print)
-		ft_printf("ss\n");
+	ft_printf("ss\n");
 }

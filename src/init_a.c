@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	set_target_a(t_stack_node *a, t_stack_node *b)
+static void	set_target_a(t_stack_node *a, t_stack_node *b)
 {
 	t_stack_node	*current_b;
 	t_stack_node	*target;
@@ -39,7 +39,7 @@ void	set_target_a(t_stack_node *a, t_stack_node *b)
 		a = a->next;
 	}
 }
-void	set_price_a(t_stack_node *a, t_stack_node *b)
+static void	set_price_a(t_stack_node *a, t_stack_node *b)
 {
 	int	len_a;
 	int	len_b;
@@ -59,25 +59,11 @@ void	set_price_a(t_stack_node *a, t_stack_node *b)
 	}
 }
 
-void	init_nodes_a(t_stack_node *head_a, t_stack_node *head_b)
+void	init_nodes_a(t_stack_node *a, t_stack_node *b)
 {
-	set_current_position(head_a);
-	set_current_position(head_b);
-	set_target_a(head_a, head_b);
-	set_price_a(head_a, head_b);
-	set_cheapest(head_a);
-}
-
-void	move_nodes_a(t_stack_node **stack_a, t_stack_node **stack_b)
-{
-	t_stack_node	*cheapest;
-
-	cheapest = get_cheapest(*stack_a);
-	if (cheapest->is_above_mid && cheapest->target_node->is_above_mid)
-		rotate_both(stack_a, stack_b, cheapest);
-	else if (!cheapest->is_above_mid && !cheapest->target_node->is_above_mid)
-		reverse_rotate_both(stack_a, stack_b, cheapest);
-	finish_rotation(stack_a, cheapest, 'a');
-	finish_rotation(stack_b, cheapest->target_node, 'b');
-	push(stack_a, stack_b, 'b', FALSE);
+	set_current_position(a);
+	set_current_position(b);
+	set_target_a(a, b);
+	set_price_a(a, b);
+	set_cheapest(a);
 }

@@ -5,10 +5,9 @@ OBJDIR := obj/
 INCDIR := include/ lib/libft/
 
 # Source files and Objects
-SRC := main.c  input_validations.c free_memory.c error.c create_stack.c\
-	   order_stack.c order_small_stack.c swap.c push.c rotate.c\
-	   reverse_rotate.c refresh_stack.c moviment_stack.c stack_utils.c\
-	   init_a.c init_b.c
+SRC := main.c input_validations.c free_memory.c error.c create_stack.c\
+	   order_stack.c swap.c push.c rotate.c reverse_rotate.c update_stack.c\
+	   moviment_stack.c stack_utils.c init_a.c init_b.c\
 
 SRC := $(SRC:%=$(SRCDIR)%)
 OBJS := $(SRC:$(SRCDIR)%.c=$(OBJDIR)%.o)

@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	set_target_b(t_stack_node *a, t_stack_node *b)
+static void	set_target_b(t_stack_node *a, t_stack_node *b)
 {
 	t_stack_node	*current_a;
 	t_stack_node	*target;
@@ -40,15 +40,10 @@ void	set_target_b(t_stack_node *a, t_stack_node *b)
 	}
 }
 
-void	init_nodes_b(t_stack_node *head_a, t_stack_node *head_b)
+void	init_nodes_b(t_stack_node *a, t_stack_node *b)
 {
-	set_current_position(head_a);
-	set_current_position(head_b);
-	set_target_b(head_a, head_b);
+	set_current_position(a);
+	set_current_position(b);
+	set_target_b(a, b);
 }
 
-void	move_nodes_b(t_stack_node **a, t_stack_node **b)
-{
-	finish_rotation(a, (*b)->target_node, 'a');
-	push(b, a, 'a', FALSE);
-}
