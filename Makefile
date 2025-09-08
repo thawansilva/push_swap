@@ -1,4 +1,4 @@
-NAME := ./bin/push_swap
+NAME := push_swap
 # Directories
 SRCDIR := src/
 OBJDIR := obj/
