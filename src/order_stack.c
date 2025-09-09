@@ -31,6 +31,8 @@ void	order_stack(t_stack_node **head_a, t_stack_node **head_b)
 	int				size_a;
 
 	size_a = get_stack_size(*head_a);
+	if ((*head_a)->value > (*head_a)->next->value)
+		swap(head_a, 'a');
 	if (size_a-- > 3 && !is_stack_sorted(*head_a))
 		push(head_a, head_b, 'b');
 	if (size_a-- > 3 && !is_stack_sorted(*head_a))

@@ -1,6 +1,7 @@
 *.swp
 *.pdf
 push_swap
+tests/push_swap_test
 
 # Prerequisites
 *.d

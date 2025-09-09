@@ -21,8 +21,8 @@ int	main(int argc, char **argv)
 		return (1);
 	stack_a = NULL;
 	stack_b = NULL;
-	input_validate(argc, argv); 
-	create_stack(&stack_a, argv + 1, argc); 
+	input_validate(argc, argv);
+	create_stack(&stack_a, argv + 1, argc);
 	if (!is_stack_sorted(stack_a))
 	{
 		if (get_stack_size(stack_a) == 2)
@@ -32,6 +32,6 @@ int	main(int argc, char **argv)
 		else
 			order_stack(&stack_a, &stack_b);
 	}
-	free_stack(&stack_a); 
+	free_stack(&stack_a);
 	return (0);
 }
