@@ -51,6 +51,10 @@ MU_TEST(test_checker_invalid_input)
 	mu_assert_string_eq("Error", res);
     res = run_push_swap_and_check("1 2 1");
 	mu_assert_string_eq("Error", res);
+    res = run_push_swap_and_check("-");
+	mu_assert_string_eq("Error", res);
+    res = run_push_swap_and_check("+");
+	mu_assert_string_eq("Error", res);
     res = run_push_swap_and_check("");
 	mu_assert_string_eq("Error", res);
     res = run_push_swap_and_check("--1 9 10");
